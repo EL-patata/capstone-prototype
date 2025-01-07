@@ -1,19 +1,21 @@
 import HomeChart from '@/components/custom/home-chart';
 import PhoneWrapper from '@/components/custom/phone-wrapper';
+import NotificationExample from '@/components/example/notification';
 import ChatBot from '@/components/pages/chat-bot';
 import { Login } from '@/components/pages/login';
+import Menu from '@/components/pages/menu';
+import { RegisterForm } from '@/components/pages/register-form';
 import { SignIn } from '@/components/pages/signin';
 
-export default function page() {
-	type THomeChart = {
-		variant: 'green' | 'yellow' | 'red';
-		reading: number;
-		detailedReadings: {
-			one: number;
-			two: number;
-		};
+type THomeChart = {
+	variant: 'green' | 'yellow' | 'red';
+	reading: number;
+	detailedReadings: {
+		one: number;
+		two: number;
 	};
-
+};
+export default function page() {
 	const homeCharts: THomeChart[] = [
 		{
 			variant: 'green',
@@ -40,6 +42,10 @@ export default function page() {
 
 					<SignIn />
 
+					<RegisterForm />
+
+					<Menu />
+
 					<PhoneWrapper>
 						<ChatBot />
 					</PhoneWrapper>
@@ -55,8 +61,10 @@ export default function page() {
 							</div>
 						</PhoneWrapper>
 					))}
+					<NotificationExample />
 				</div>
 			</div>
+
 			<div className="max-w-screen-sm mx-auto my-7"></div>
 		</div>
 	);

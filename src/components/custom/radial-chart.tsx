@@ -48,11 +48,11 @@ export function RadialChart({ variant, reading }: Props) {
 			className={cn(
 				'flex flex-col bg-gradient-to-tr',
 				variant === 'green' &&
-					' from-emerald-500/70 via-emerald-500/30 to-emerald-500/70 border-emerald-500 text-gray-800',
+					' from-emerald-500/70 via-emerald-500/30 to-emerald-500/70 border-emerald-500 text-gray-800 dark:text-gray-100',
 				variant === 'yellow' &&
-					' from-amber-500/70 via-amber-500/30 to-amber-500/70 border-amber-500 text-gray-800',
+					' from-amber-500/70 via-amber-500/30 to-amber-500/70 border-amber-500 text-gray-800 dark:text-gray-100',
 				variant === 'red' &&
-					' from-red-600/70 via-red-600/30 to-red-600/70 border-red-600 text-gray-800'
+					' from-red-600/70 via-red-600/30 to-red-600/70 border-red-600 text-gray-800 dark:text-gray-100'
 			)}
 		>
 			<CardHeader className="items-center pb-0">
