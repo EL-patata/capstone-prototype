@@ -65,7 +65,7 @@ export function SignIn({
 				</CardContent>
 				<CardFooter className="gap-2 flex-col">
 					<Button type="submit" className="w-full">
-						Login
+						Sign in
 					</Button>
 					<Button variant="outline" className="w-full">
 						Already have an account? Log in

@@ -3,7 +3,7 @@
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Bot, Send, User } from 'lucide-react';
+import { Bot, SendHorizonal, User } from 'lucide-react';
 import { useState } from 'react';
 
 type Message = {
@@ -73,8 +73,7 @@ export default function ChatBot() {
 			>
 				<Input type="text" placeholder="Type your message..." />
 				<Button type="submit" size="icon">
-					<Send className="h-4 w-4" />
-					<span className="sr-only">Send</span>
+					<SendHorizonal className="" />
 				</Button>
 			</form>
 		</div>

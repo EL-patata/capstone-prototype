@@ -1,10 +1,37 @@
+import HomeChart from '@/components/custom/home-chart';
 import PhoneWrapper from '@/components/custom/phone-wrapper';
-import { RadialChart } from '@/components/custom/radial-chart';
 import ChatBot from '@/components/pages/chat-bot';
 import { Login } from '@/components/pages/login';
 import { SignIn } from '@/components/pages/signin';
 
 export default function page() {
+	type THomeChart = {
+		variant: 'green' | 'yellow' | 'red';
+		reading: number;
+		detailedReadings: {
+			one: number;
+			two: number;
+		};
+	};
+
+	const homeCharts: THomeChart[] = [
+		{
+			variant: 'green',
+			reading: 46,
+			detailedReadings: { one: 43, two: 48 },
+		},
+		{
+			variant: 'yellow',
+			reading: 170,
+			detailedReadings: { one: 122, two: 201 },
+		},
+		{
+			variant: 'red',
+			reading: 280,
+			detailedReadings: { one: 366, two: 267 },
+		},
+	];
+
 	return (
 		<div>
 			<div className="flex min-h-svh w-full justify-center p-6 md:p-10">
@@ -17,17 +44,17 @@ export default function page() {
 						<ChatBot />
 					</PhoneWrapper>
 
-					<PhoneWrapper>
-						<RadialChart variant="green" />
-					</PhoneWrapper>
-
-					<PhoneWrapper>
-						<RadialChart variant="yellow" />
-					</PhoneWrapper>
-
-					<PhoneWrapper>
-						<RadialChart variant="red" />
-					</PhoneWrapper>
+					{homeCharts.map((chart, index) => (
+						<PhoneWrapper key={index}>
+							<div className="pt-8">
+								<HomeChart
+									variant={chart.variant}
+									reading={chart.reading}
+									detailedReadings={chart.detailedReadings}
+								/>
+							</div>
+						</PhoneWrapper>
+					))}
 				</div>
 			</div>
 			<div className="max-w-screen-sm mx-auto my-7"></div>

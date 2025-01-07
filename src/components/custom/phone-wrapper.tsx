@@ -7,9 +7,7 @@ export default function PhoneWrapper({ children }: PropsWithChildren) {
 	return (
 		<Card className="w-full max-w-sm h-[844px]">
 			<CardHeader className="">
-				<Button size={'icon'}>
-					<MenuIcon />
-				</Button>
+				<MenuIcon className="w-16" />
 			</CardHeader>
 			<CardContent>
 				<div className="min-h-[650px]">{children}</div>

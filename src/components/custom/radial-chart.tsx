@@ -1,6 +1,5 @@
 'use client';
 
-import { TrendingUp } from 'lucide-react';
 import {
 	Label,
 	PolarGrid,
@@ -19,15 +18,16 @@ import {
 import { ChartConfig, ChartContainer } from '@/components/ui/chart';
 import { cn } from '@/lib/utils';
 
-const chartData = [
-	{ browser: 'safari', visitors: 200, fill: 'var(--color-safari)' },
-];
-
-export function RadialChart({
-	variant,
-}: {
+type Props = {
 	variant: 'green' | 'yellow' | 'red';
-}) {
+	reading: number;
+};
+
+export function RadialChart({ variant, reading }: Props) {
+	const chartData = [
+		{ browser: 'safari', visitors: reading, fill: 'var(--color-safari)' },
+	];
+
 	const chartConfig = {
 		visitors: {
 			label: 'Visitors',
@@ -56,7 +56,7 @@ export function RadialChart({
 			)}
 		>
 			<CardHeader className="items-center pb-0">
-				<CardTitle>Radial Chart - Text</CardTitle>
+				<CardTitle>Chart</CardTitle>
 			</CardHeader>
 			<CardContent className="flex-1 pb-0 relative z-10 ">
 				<div>
@@ -67,16 +67,16 @@ export function RadialChart({
 						<RadialBarChart
 							data={chartData}
 							startAngle={0}
-							endAngle={250}
+							endAngle={reading}
 							innerRadius={80}
-							outerRadius={110}
+							outerRadius={100}
 						>
 							<PolarGrid
 								gridType="circle"
 								radialLines={false}
 								stroke="none"
 								className="first:fill-muted last:fill-background"
-								polarRadius={[86, 74]}
+								polarRadius={[90, 74]}
 							/>
 							<RadialBar dataKey="visitors" background cornerRadius={10} />
 							<PolarRadiusAxis tick={false} tickLine={false} axisLine={false}>
@@ -115,8 +115,8 @@ export function RadialChart({
 				</div>
 			</CardContent>
 			<CardFooter className="flex-col gap-2 text-sm">
-				<div className="flex items-center gap-2 font-medium leading-none">
-					Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+				<div className="flex items-center gap-2 font-semibold leading-none ">
+					Percentage of the norm
 				</div>
 			</CardFooter>
 		</Card>
